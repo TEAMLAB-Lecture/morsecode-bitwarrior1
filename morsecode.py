@@ -271,9 +271,10 @@ def encoding_sentence(english_sentence):
     result = ''
     for char in english_sentence.upper():
         if char == ' ':
-            result += ' '
+            if result[-2] != ' ': # 2칸이상띄우지 않음
+                result += ' '
         else:
-            result += encoding_character(char) + ' '
+            result += encoding_character(char) + ' ' #모스부호 하나마다 띄어 씀
 
     return result.strip()
     # ==================================
